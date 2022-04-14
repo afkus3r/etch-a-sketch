@@ -26,6 +26,25 @@ h1 {
     margin: auto;
     border-style: solid;
     border-color: black;
+    display : flex;
+    flex-direction: column;
+    padding : 0px;
+}
+
+.rows {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    flex-grow: 1;
+}
+
+.cubes {
+    padding: 0px;
+    margin: 0px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    flex-grow: 1;
 }
 
 footer {
