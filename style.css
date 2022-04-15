@@ -42,8 +42,18 @@ h1 {
     padding: 0px;
     margin: 0px;
     border-style: solid;
-    border-color: black;
-    border-width: 1px;
+    border-color: grey;
+    border-width: 0.5px;
+    flex-grow: 1;
+}
+
+.Solid {
+    padding: 0px;
+    margin: 0px;
+    background-color: lightgreen;
+    border-style: solid;
+    border-color: grey;
+    border-width: 0.5px;
     flex-grow: 1;
 }
 
