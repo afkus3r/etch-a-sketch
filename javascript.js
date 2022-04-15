@@ -24,24 +24,39 @@ function sizeChoice () {
   });
 }
 
-function hover (hoverStyle) {
+function solidHover () {
   const cubes = document.querySelectorAll(".cubes");
   cubes.forEach((cube) => {
     cube.addEventListener("mouseover", () => {
-      cube.setAttribute("class", hoverStyle);
+      cube.setAttribute("class", "solid");
     });
   });
 }
 
-function colorChoice () {
+function clearGrid () {
+  const cubes = document.querySelectorAll(".solid");
+  cubes.forEach((cube) => {
+    cube.setAttribute("class", "cubes");
+  })
+}
+
+function colorInput (input) {
+  if (input == "Solid") {
+    solidHover();
+  } else if (input == "Clear") {
+    clearGrid();
+  }
+}
+
+function draw() {
   const colors = document.querySelectorAll("input[name=color]");
   colors.forEach((color) => {
     color.addEventListener("click", () => {
-       hover(color.value);
+      colorInput(color.value);
     });
   });
 }
 
+
 grid(16);
-sizeChoice();
-colorChoice();
+draw();
