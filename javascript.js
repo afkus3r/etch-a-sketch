@@ -8,43 +8,58 @@ function grid(size) {
     rows.classList.add("rows");
     box.appendChild(rows);
     for (let i = 0; i < size; i++) {
-        const cubes = document.createElement("div");
-        cubes.classList.add("cubes");
-        rows.appendChild(cubes);
+      const cubes = document.createElement("div");
+      cubes.classList.add("cubes");
+      rows.appendChild(cubes);
     }
   }
 }
 
-function sizeChoice () {
+function sizeChoice() {
   const size = document.querySelectorAll("input[name=size]");
   size.forEach((size) => {
     size.addEventListener("click", () => {
-        grid(size.value);
+      grid(size.value);
     });
   });
 }
 
-function solidHover () {
+function solid() {
   const cubes = document.querySelectorAll(".cubes");
   cubes.forEach((cube) => {
     cube.addEventListener("mouseover", () => {
-      cube.setAttribute("class", "solid");
+      cube.setAttribute("style", "background : #bbadff");
     });
   });
 }
 
-function clearGrid () {
-  const cubes = document.querySelectorAll(".solid");
+function rainbow() {
+  const cubes = document.querySelectorAll(".cubes");
   cubes.forEach((cube) => {
-    cube.setAttribute("class", "cubes");
-  })
+    let randColor = Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, "0")
+      .toUpperCase();
+    cube.addEventListener("mouseover", () => {
+      cube.setAttribute("style", `background : #${randColor}`);
+    });
+  });
 }
 
-function colorInput (input) {
+function clearGrid() {
+  const cubes = document.querySelectorAll(".cubes");
+  cubes.forEach((cube) => {
+    cube.setAttribute("style", "background : white");
+  });
+}
+
+function colorInput(input) {
   if (input == "Solid") {
-    solidHover();
+    solid();
   } else if (input == "Clear") {
     clearGrid();
+  } else if (input == "Rainbow") {
+    rainbow();
   }
 }
 
@@ -57,6 +72,8 @@ function draw() {
   });
 }
 
-
 grid(16);
+solid();
+
+sizeChoice();
 draw();
