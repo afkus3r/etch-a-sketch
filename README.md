@@ -2,7 +2,7 @@
 
 Etch-a-Sketch is the second JavaScript project of [The Odin Project](https://www.theodinproject.com/) curriculum.
 
-<img src="./visual.gif" width="250" height="250"/>
+<img src="./etch-visual.gif" width="500" height="auto"/>
 
 ## Goal
 
